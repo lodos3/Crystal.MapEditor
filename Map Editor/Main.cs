@@ -79,7 +79,7 @@ namespace Map_Editor
         private Layer layer = Layer.None;
 
         public CellInfo[,] M2CellInfo;
-        private MapReader map;
+        public MapReader map;
         private string mapFileName;
         private Point mapPoint;
 
@@ -91,7 +91,7 @@ namespace Map_Editor
         private int OffSetY;
 
         private Point p1, p2;
-        private int selectImageIndex;
+        public int selectImageIndex;
         private MLibrary.MImage selectLibMImage;
         private ListItem selectListItem;
         private int selectTilesIndex = -1;
@@ -2632,7 +2632,7 @@ namespace Map_Editor
             }
         }
 
-        private void Jump(int x, int y)
+        public void Jump(int x, int y)
         {
             //if (x - OffSetX/2 >= mapWidth || y - OffSetY/2 >= mapHeight)
             //{

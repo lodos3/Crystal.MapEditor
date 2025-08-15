@@ -1824,12 +1824,12 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnOpen;
-        private System.Windows.Forms.TabControl tabControl1;
+        public System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabMap;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem chkBack;
-        private System.Windows.Forms.ToolStripMenuItem chkMidd;
-        private System.Windows.Forms.ToolStripMenuItem chkFront;
+        public System.Windows.Forms.ToolStripMenuItem chkBack;
+        public System.Windows.Forms.ToolStripMenuItem chkMidd;
+        public System.Windows.Forms.ToolStripMenuItem chkFront;
         private System.Windows.Forms.ToolStripMenuItem chkBackMask;
         private System.Windows.Forms.ToolStripMenuItem chkFrontMask;
         private System.Windows.Forms.ToolStripMenuItem chkDoor;
@@ -1854,7 +1854,7 @@
         private System.Windows.Forms.ListView ShandaMir3LibListView;
         private System.Windows.Forms.ToolStripMenuItem chkMiddleAnimationTag;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox cmbEditorLayer;
+        public System.Windows.Forms.ToolStripComboBox cmbEditorLayer;
         private System.Windows.Forms.PictureBox picWemdeMir2;
         private System.Windows.Forms.Label labWemadeMir2OffSetY;
         private System.Windows.Forms.Label labeWemadeMir2OffSetX;
@@ -1875,7 +1875,7 @@
         private System.Windows.Forms.Label labShandaMir3Height;
         private System.Windows.Forms.Label labShandaMir3Width;
         private System.Windows.Forms.PictureBox picShandaMir3;
-        private System.Windows.Forms.ToolStripMenuItem chkDrawGrids;
+        public System.Windows.Forms.ToolStripMenuItem chkDrawGrids;
         private System.Windows.Forms.TabPage tabObjects;
         private System.Windows.Forms.PictureBox picObjects;
         private System.Windows.Forms.ImageList ObjectsimageList;
@@ -1888,7 +1888,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnSetAnimation;
         private System.Windows.Forms.ToolStripMenuItem btnSetLight;
         private System.Windows.Forms.TabPage tabTiles;
-        private System.Windows.Forms.Panel MapPanel;
+        public System.Windows.Forms.Panel MapPanel;
         private System.Windows.Forms.ListBox ObjectslistBox;
         private System.Windows.Forms.ToolStripMenuItem chkMiddleTag;
         private System.Windows.Forms.ToolStripMenuItem chkShowCellInfo;
