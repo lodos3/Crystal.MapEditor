@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
+using Map_Editor;
 using Map_Editor.UI;
 
 namespace Map_Editor.Components
@@ -26,7 +27,7 @@ namespace Map_Editor.Components
         private ImageList _imageList;
 
         private Dictionary<int, int> _indexList;
-        private MirVerSion _currentVersion;
+        private Main.MirVerSion _currentVersion;
         private string _searchFilter = "";
         private string _typeFilter = "All";
 
@@ -134,7 +135,7 @@ namespace Map_Editor.Components
             _previewPictureBox.DoubleClick += PreviewPictureBox_DoubleClick;
         }
 
-        public void LoadLibraries(Dictionary<int, int> indexList, MirVerSion version)
+        public void LoadLibraries(Dictionary<int, int> indexList, Main.MirVerSion version)
         {
             _indexList = indexList;
             _currentVersion = version;
