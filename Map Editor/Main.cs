@@ -289,7 +289,7 @@ namespace Map_Editor
         private static extern int SetProcessWorkingSetSize(IntPtr process, int minimumWorkingSetSize,
             int maximumWorkingSetSize);
 
-        public new void Dispose()
+        public new void FreeMemory()
         {
             GC.Collect();
             GC.SuppressFinalize(this);
@@ -1115,7 +1115,7 @@ namespace Map_Editor
 
         private void btnDispose_Click(object sender, EventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void chkBack_Click(object sender, EventArgs e)
@@ -2934,7 +2934,7 @@ namespace Map_Editor
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void chkShowCellInfo_Click(object sender, EventArgs e)
@@ -4687,7 +4687,7 @@ namespace Map_Editor
 
         private void menuFreeMemory_Click(object sender, EventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void menuJump_Click(object sender, EventArgs e)
@@ -4861,7 +4861,7 @@ namespace Map_Editor
 
         private void btnFreeMemory_Click(object sender, EventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -5516,7 +5516,7 @@ namespace Map_Editor
             BrushMir3BigTiles
         }
 
-        private enum MirVerSion : byte
+        public enum MirVerSion : byte
         {
             None,
             WemadeMir2,

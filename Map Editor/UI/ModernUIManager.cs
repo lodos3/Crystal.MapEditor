@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Map_Editor;
 using Map_Editor.UI;
 using Map_Editor.Components;
 
@@ -155,25 +156,25 @@ namespace Map_Editor.UI
                 // Load Wemade Mir2 libraries
                 if (_mainForm._wemadeMir2IndexList != null)
                 {
-                    _wemadeMir2Viewer.LoadLibraries(_mainForm._wemadeMir2IndexList, MirVerSion.WemadeMir2);
+                    _wemadeMir2Viewer.LoadLibraries(_mainForm._wemadeMir2IndexList, Main.MirVerSion.WemadeMir2);
                 }
 
                 // Load Shanda Mir2 libraries
                 if (_mainForm._shandaMir2IndexList != null)
                 {
-                    _shandaMir2Viewer.LoadLibraries(_mainForm._shandaMir2IndexList, MirVerSion.ShandaMir2);
+                    _shandaMir2Viewer.LoadLibraries(_mainForm._shandaMir2IndexList, Main.MirVerSion.ShandaMir2);
                 }
 
                 // Load Wemade Mir3 libraries
                 if (_mainForm._wemadeMir3IndexList != null)
                 {
-                    _wemadeMir3Viewer.LoadLibraries(_mainForm._wemadeMir3IndexList, MirVerSion.WemadeMir3);
+                    _wemadeMir3Viewer.LoadLibraries(_mainForm._wemadeMir3IndexList, Main.MirVerSion.WemadeMir3);
                 }
 
                 // Load Shanda Mir3 libraries
                 if (_mainForm._shandaMir3IndexList != null)
                 {
-                    _shandaMir3Viewer.LoadLibraries(_mainForm._shandaMir3IndexList, MirVerSion.ShandaMir3);
+                    _shandaMir3Viewer.LoadLibraries(_mainForm._shandaMir3IndexList, Main.MirVerSion.ShandaMir3);
                 }
             }
             catch (Exception ex)
