@@ -13,6 +13,7 @@ using SlimDX;
 using SlimDX.Direct3D9;
 using Font = System.Drawing.Font;
 using System.Linq;
+using Map_Editor.UI;
 
 namespace Map_Editor
 {
@@ -115,6 +116,9 @@ namespace Map_Editor
         public Bitmap _mainImage;
         private bool pictureBox_loaded = false;
 
+        // Enhanced input handler for modern controls
+        private EnhancedInputHandler _inputHandler;
+
         public Main()
         {
             InitializeComponent();
@@ -123,11 +127,26 @@ namespace Map_Editor
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
+            // Apply modern dark theme
+            DarkTheme.ApplyToForm(this);
+
+            // Initialize enhanced input handler for WASD scrolling and modern keybinds
+            _inputHandler = new EnhancedInputHandler(this);
+
             Application.Idle += Application_Idle;
             
             //Tilecutter
             pictureBox_Grid.Parent = pictureBox_Image;
             pictureBox_Highlight.Parent = pictureBox_Grid;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _inputHandler?.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
         private void Application_Idle(object sender, EventArgs e)
@@ -4556,6 +4575,17 @@ namespace Map_Editor
                 SetMapSize(mapWidth, mapHeight);
             }
         }
+
+        // Public wrappers for EnhancedInputHandler
+        public void PerformZoomIn() => ZoomIn();
+        public void PerformZoomOut() => ZoomOut();
+        
+        // Public accessors for EnhancedInputHandler
+        public Point GetMapPoint() => mapPoint;
+        public int GetMapWidth() => mapWidth;
+        public int GetMapHeight() => mapHeight;
+        public bool CanZoomIn() => zoomMIN < zoomMAX;
+        public bool CanZoomOut() => zoomMIN > 3;
 
 
         //#region Tool panel buttons
