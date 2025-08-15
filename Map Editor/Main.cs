@@ -55,11 +55,11 @@ namespace Map_Editor
         private static int AutoTileRange;
         private static int AutoTileChanges;
         private readonly Editor _editor = new Editor();
-        private readonly Dictionary<int, int> _shandaMir2IndexList = new Dictionary<int, int>();
-        private readonly Dictionary<int, int> _shandaMir3IndexList = new Dictionary<int, int>();
+        public readonly Dictionary<int, int> _shandaMir2IndexList = new Dictionary<int, int>();
+        public readonly Dictionary<int, int> _shandaMir3IndexList = new Dictionary<int, int>();
         private readonly Dictionary<int, int> _tilesIndexList = new Dictionary<int, int>();
-        private readonly Dictionary<int, int> _wemadeMir2IndexList = new Dictionary<int, int>();
-        private readonly Dictionary<int, int> _wemadeMir3IndexList = new Dictionary<int, int>();
+        public readonly Dictionary<int, int> _wemadeMir2IndexList = new Dictionary<int, int>();
+        public readonly Dictionary<int, int> _wemadeMir3IndexList = new Dictionary<int, int>();
         private readonly List<CellInfoData> bigTilePoints = new List<CellInfoData>();
         private readonly CellInfoControl cellInfoControl = new CellInfoControl();
         private readonly int[] Mir2BigTilesPreviewIndex = {5, 15, 6, 20, 0, 21, 7, 17, 8};
@@ -119,6 +119,9 @@ namespace Map_Editor
         // Enhanced input handler for modern controls
         private EnhancedInputHandler _inputHandler;
 
+        // Modern UI Manager for coordinating enhanced components  
+        private ModernUIManager _modernUIManager;
+
         public Main()
         {
             InitializeComponent();
@@ -133,6 +136,9 @@ namespace Map_Editor
             // Initialize enhanced input handler for WASD scrolling and modern keybinds
             _inputHandler = new EnhancedInputHandler(this);
 
+            // Initialize modern UI manager
+            _modernUIManager = new ModernUIManager(this);
+
             Application.Idle += Application_Idle;
             
             //Tilecutter
@@ -145,6 +151,7 @@ namespace Map_Editor
             if (disposing)
             {
                 _inputHandler?.Dispose();
+                _modernUIManager?.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -262,6 +269,9 @@ namespace Map_Editor
 
                     DXManager.Device.EndScene();
                     DXManager.Device.Present();
+                    
+                    // Update FPS in modern UI
+                    _modernUIManager?.UpdateFPS();
                 }
             }
             catch (Direct3D9Exception)
@@ -309,6 +319,9 @@ namespace Map_Editor
             ReadObjectsToListBox();
 
             DXManager.Create(MapPanel);
+
+            // Integrate modern UI components with existing interface
+            _modernUIManager.IntegrateWithExistingUI();
 
             //TileCutter
             comboBox_cellSize.SelectedIndex = 0;
