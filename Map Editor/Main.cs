@@ -150,6 +150,10 @@ namespace Map_Editor
         {
             if (disposing)
             {
+                if (components != null)
+                {
+                    components.Dispose();
+                }
                 _inputHandler?.Dispose();
                 _modernUIManager?.Dispose();
             }
@@ -289,7 +293,7 @@ namespace Map_Editor
         private static extern int SetProcessWorkingSetSize(IntPtr process, int minimumWorkingSetSize,
             int maximumWorkingSetSize);
 
-        public new void FreeMemory()
+        public void FreeMemory()
         {
             GC.Collect();
             GC.SuppressFinalize(this);
