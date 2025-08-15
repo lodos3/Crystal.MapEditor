@@ -1115,7 +1115,7 @@ namespace Map_Editor
 
         private void btnDispose_Click(object sender, EventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void chkBack_Click(object sender, EventArgs e)
@@ -2934,7 +2934,7 @@ namespace Map_Editor
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void chkShowCellInfo_Click(object sender, EventArgs e)
@@ -4687,7 +4687,7 @@ namespace Map_Editor
 
         private void menuFreeMemory_Click(object sender, EventArgs e)
         {
-            Dispose();
+            FreeMemory();
         }
 
         private void menuJump_Click(object sender, EventArgs e)
